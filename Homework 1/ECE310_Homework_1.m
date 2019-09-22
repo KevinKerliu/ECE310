@@ -110,7 +110,7 @@ x = filter(b, a, v);
 % peridoogram
 [s_est, w] = pwelch(x, hamming(512),256,512);
 % Normalize the estimated PSD
-s_est_normalized = s_est/mean(s_est);
+s_est_normalized = s_est/s_est(1);
 
 
 % Part F
@@ -119,7 +119,7 @@ Hw = freqz(b,a,w);
 % Sx(w)
 Sx = 4*(abs(Hw)).^2;
 % Normalize the exact PSD
-Sx_normalized = Sx/mean(Sx);
+Sx_normalized = Sx/Sx(1);
 
 % Part G
 % Plot the PSDs
